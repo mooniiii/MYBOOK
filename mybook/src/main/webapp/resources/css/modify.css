@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+
+.row1{
+    margin-bottom: 135px;
+    position: relative;
+    overflow: hidden;
+    height: 115px;
+}
+.row1Img{
+    display: block;
+    width: 1920px;
+    height: 115px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -960px;
+    background-color: #2f3847;
+}
+
+
+.modify{
+    width: 1100px;
+    height: 650px;
+    margin: 0 auto 20px auto;
+    position: relative;
+}
+.modify h2{
+	margin-bottom: 20px;
+}
+.modify h2 a{
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-right: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+}
+.modify form{
+    height: 500px;
+    padding: 20px;
+}
+.modify .title, .modify .writer{
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+.modify .writer{
+	margin-left: 10px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.2em;
+}
+.modify .title input{
+	padding: 7px 10px;
+	font-size: 13px;
+	line-height: 1.2em;
+	border: 1px solid #444;
+}
+.modify .content textarea{
+    padding: 10px;
+    width: 1030px;
+    height: 400px;
+    border: 1px solid #777;
+    border: 1px solid #444;
+    font-size: 14px;
+}
+.modify .modifyBtn{
+    cursor: pointer;
+}
+.modify .modifyBtn input{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+
+
+
+/* #container --------------------------------------------------------------------------*/
+
