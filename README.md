@@ -241,7 +241,7 @@ public class ReplyController {
 				consumes = "application/json",
 				produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> modify(@PathVariable("rno") int rno,
-									  	  @RequestBody ReplyVO vo) {
+					     @RequestBody ReplyVO vo) {
 		vo.setRno(rno);
 		
 		return service.modify(vo) == 1
@@ -249,6 +249,7 @@ public class ReplyController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
 	}
 }
+
 ```
 
 3. 멤버
