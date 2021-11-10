@@ -17,13 +17,21 @@
  ## 화면
  
 ![슬라이드2](https://user-images.githubusercontent.com/92083313/141031901-d9499b0e-c2f0-42ad-9fcd-786c1687743d.jpeg)
+
 ![슬라이드3](https://user-images.githubusercontent.com/92083313/141031913-d3f482e1-5614-462b-ad4b-c51946fd9a28.jpeg)
+
 ![슬라이드4](https://user-images.githubusercontent.com/92083313/141031920-708a9116-d679-4489-bb80-b05e3d375453.jpeg)
+
 ![슬라이드5](https://user-images.githubusercontent.com/92083313/141032378-196ecc94-14d3-4c1d-9b10-094d1932b882.jpeg)
-로그인이 된 상태에서만 '글쓰기' 버튼이 생성 되도록 함.
+로그인이 된 상태에서만 '글쓰기' 버튼이 생성되도록 함.
+
 ![슬라이드6](https://user-images.githubusercontent.com/92083313/141032318-426c0b57-b799-4cc3-9455-e33911417a47.jpeg)
+게시글의 작성자와 로그인 된 사용자가 일치해야 만 '수정하기', '삭제하기' 버튼이 생성되도록 함.
+
 ![슬라이드7](https://user-images.githubusercontent.com/92083313/141031935-db872b55-020b-42e2-92aa-21f038a1d7e8.jpeg)
+
 ![슬라이드8](https://user-images.githubusercontent.com/92083313/141031936-6c320ce7-e611-4c50-82a7-3fbce1c2f972.jpeg)
+
 ![슬라이드9](https://user-images.githubusercontent.com/92083313/141031941-62ce42bc-dedd-454e-8351-d3e1eee817e6.jpeg)
 
 ## 사용 기술
