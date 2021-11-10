@@ -27,7 +27,7 @@
 
 ## 사용 기술
 
-```
+```java
 package org.zerock.controller;
 
 import org.springframework.stereotype.Controller;
@@ -185,6 +185,7 @@ public class BoardController {
 		return "redirect:/board/mb_event/list";
 	}
 }
+
 
 
 ```
