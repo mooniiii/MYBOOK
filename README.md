@@ -334,3 +334,77 @@ public class MemberController {
 }
 ```
 
+4. ~~예약 시스템~~
+	* 현재 Java를 통해서 구현되는 방식을 설계만 해놓은 상태로 추후 작업하여 서비스 오픈 예정
+```java
+public class booking {
+
+	public static void main(String[] args) {
+		
+		// 강의실 사이즈(sizeX, sizeY) -> 학원 관리자가 설정할 수 있도록 함
+		int sizeX = 10;
+		int sizeY = 10;
+		
+		// 사용자가 처음 가지는 좌석을 (0, 0)으로 초기화
+		int x = 0;
+		int	y = 0;
+		
+		int[][] seat = new int[sizeX][sizeY];
+		
+		for(int i = 0; i < sizeX; i++) {
+			
+			for(int j = 0; j < sizeY; j++) {
+				
+				// 모든 좌석이 가지는 기본값은 '0'으로 초기화 -> 예약이 완료 되면 '1'로 변경되게 설정함.
+				seat[i][j] = 0;
+			}	
+		}
+
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true){
+			
+			// 예약하고자 하는 좌석의 좌표를 입력 받음.
+			System.out.println("예약할 좌석의 X좌표를 입력하여 주세요 (종료는 0) >");
+			int inputX = Integer.parseInt(scanner.nextLine());
+			System.out.println("예약할 좌석의 Y좌표를 입력하여 주세요 (종료는 0) >");
+			int inputY = Integer.parseInt(scanner.nextLine());
+			
+			// 프로그램 종료
+			if (inputX == 0 & inputY == 0) {
+				if (x==0 && y==0)
+					System.out.println("프로그램이 종료됩니다.");
+					break;
+			}
+			
+			// 강의실 사이즈를 초과하는 좌석 선택 시 
+			if (inputX < 0 || inputX > sizeX || inputY < 0 || inputY > sizeY) {
+				System.out.println("잘못된 입력입니다. 다시 입력하여 주세요.");
+				continue;
+			}
+			// 이미 예약된 좌석 선택 시
+			if(seat[inputX][inputY] != 0) {
+				System.out.println("이미 예약된 좌석입니다. 다시 입력하여 주세요.");
+				continue;
+			}
+			// 예약이 정상적으로 실행됐을 시
+			else if (seat[inputX][inputY] == 0) {
+				// 기존에 '0'으로 초기화 했던 좌석의 값을 '1'로 변경
+				seat[inputX-1][inputY-1] += 1;
+				System.out.println("예약이 완료되었습니다. 이용해 주셔서 감사합니다.");
+				
+				// 현재 좌석의 상태를 표시하는 코드
+				for (int i = 0; i < seat.length; i++) {
+					int[] inArr = seat[i];
+					for (int j = 0; j < inArr.length; j++) {
+					System.out.print(inArr[j] + " ");
+					}
+					System.out.println();
+				}
+			}
+			return;
+		}
+	}
+}
+```
+
