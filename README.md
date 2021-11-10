@@ -45,14 +45,18 @@ import org.zerock.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-@Controller		// 이 자바 클래스는 컨트롤러 역할을 하는 클래스라는 것을 알려줌.
-@Log4j			// lombok 이용하여 콘솔에 logger를 남기겠다. 
+@Controller
+@Log4j
 @RequestMapping("/board")
 @AllArgsConstructor
 public class BoardController {
 	
 	private BoardService service;
 	
+	
+	// 공지사항 게시판에 대한 Controller
+	
+	// 게시판
 	@GetMapping("mb_notice/list")
 	public void noList(Model model, Criteria cri) {
 		
@@ -64,8 +68,7 @@ public class BoardController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
-	
-	
+	// 게시글 상세 페이지
 	@GetMapping("mb_notice/read")
 	public void noRead(int bno, Model model) {
 		
@@ -73,13 +76,13 @@ public class BoardController {
 		model.addAttribute("read", service.get(bno));
 	}
 	
-	
-	
+	// 게시글 등록 페이지
 	@GetMapping("mb_notice/register")
 	public void noRegisterGet() {
 		
 		log.info("@@@@@@@@@@ register good @@@@@@@@@@");
 	}
+	// 게시글 등록
 	@PostMapping("mb_notice/register")
 	public String noRegisterPost(BoardVO board, RedirectAttributes rttr) {
 		
@@ -90,13 +93,13 @@ public class BoardController {
 		return "redirect:/board/mb_notice/read";
 	}
 	
-	
-	
+	// 게시판 수정 페이지
 	@GetMapping("mb_notice/modify")
 	public void noModifyGet(int bno, Model model) {
 		log.info("@@@@@@@@@@ modify good bno : " + bno +" @@@@@@@@@@");
 		model.addAttribute("modify", service.get(bno));
 	}
+	// 게시판 수정
 	@PostMapping("mb_notice/modify")
 	public String noModifyPost(BoardVO board, RedirectAttributes rttr, Model model) {
 		model.addAttribute("result", service.modify(board));
@@ -104,27 +107,18 @@ public class BoardController {
 		return "redirect:/board/mb_notice/read";
 	}
 	
-	
-	
+	// 게시글 삭제
 	@GetMapping("mb_notice/remove")
 	public String noRemove(int bno) {
 		log.info("@@@@@@@@@@ remove good bno : " + bno + " @@@@@@@@@@");
 		service.remove(bno);
 		return "redirect:/board/mb_notice/list";
 	}
+
 	
+	// 이벤트 게시판에 대한 Controller
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// 게시판
 	@GetMapping("mb_event/list")
 	public void evList(Model model, Criteria cri) {
 		
@@ -136,8 +130,7 @@ public class BoardController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
-	
-	
+	// 게시글 페이지
 	@GetMapping("mb_event/read")
 	public void evRead(int bno, Model model) {
 		
@@ -145,13 +138,13 @@ public class BoardController {
 		model.addAttribute("read", service.get(bno));
 	}
 	
-	
-	
+	// 게시글 등록 페이지
 	@GetMapping("mb_event/register")
 	public void evRegisterGet() {
 		
 		log.info("@@@@@@@@@@ register good @@@@@@@@@@");
 	}
+	// 게시글 등록
 	@PostMapping("mb_event/register")
 	public String evRegisterPost(BoardVO board, RedirectAttributes rttr) {
 		
@@ -162,13 +155,13 @@ public class BoardController {
 		return "redirect:/board/mb_event/read";
 	}
 	
-	
-	
+	// 게시글 수정 페이지
 	@GetMapping("mb_event/modify")
 	public void evModifyGet(int bno, Model model) {
 		log.info("@@@@@@@@@@ modify good bno : " + bno +" @@@@@@@@@@");
 		model.addAttribute("modify", service.get(bno));
 	}
+	// 게시글 수정
 	@PostMapping("mb_event/modify")
 	public String evModifyPost(BoardVO board, RedirectAttributes rttr, Model model) {
 		model.addAttribute("result", service.modify(board));
@@ -176,8 +169,7 @@ public class BoardController {
 		return "redirect:/board/mb_event/read";
 	}
 	
-	
-	
+	// 게시글 삭제
 	@GetMapping("mb_event/remove")
 	public String evRemove(int bno) {
 		log.info("@@@@@@@@@@ remove good bno : " + bno + " @@@@@@@@@@");
@@ -185,8 +177,6 @@ public class BoardController {
 		return "redirect:/board/mb_event/list";
 	}
 }
-
-
 
 ```
 
