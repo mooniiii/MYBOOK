@@ -9,4 +9,11 @@
  
  ## 개발 환경
  
- * 맥
+ * 개발 언어 : Java
+ * 개발 환경 : JDK 1.8, Tomcat v9.0
+ * 데이터베이스 : MySQL 8.0.6
+ * 개발도구 : Eclipse 2021-09, Visual Studio Code 1.55.2
+ 
+ ## 화면
+ 
+
