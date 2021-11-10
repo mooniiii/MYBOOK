@@ -27,6 +27,10 @@
 
 ## 사용 기술
 
+1. 게시판
+
+	* 게시판 컨트롤러 : BoardController
+
 ```java
 package org.zerock.controller;
 
@@ -179,5 +183,7 @@ public class BoardController {
 }
 
 ```
+
+2. 댓글
 
 
