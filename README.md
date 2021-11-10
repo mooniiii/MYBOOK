@@ -184,6 +184,7 @@ public class BoardController {
 ```
 
 2. 댓글
+
 	* 댓글 컨트롤러 : ReplyController
 
 ```java
@@ -280,6 +281,88 @@ public class ReplyController {
 		return service.modify(vo) == 1
 				? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
+	}
+}
+```
+
+3. 멤버
+	* 멤버 컨트롤러 : MemberController
+```java
+@RequestMapping(value="/member", method=RequestMethod.GET)
+public class MemberController {
+	
+	@Autowired
+	MemberService mservice;
+	
+	// 로그인 페이지
+	@GetMapping("/login")
+	public void loginGet() {	
+	}
+	// 로그인
+	@PostMapping("/loginPost")
+	public String loginPost(MemberDTO mdto, HttpSession session) {
+		
+		MemberDTO dto = mservice.loginPost(mdto);
+		
+		session.setAttribute("aaaa", dto);
+		
+		if(session.getAttribute("aaaa")!=null) {
+			
+			return "redirect:/";
+			
+		} else {
+			
+			return "redircet:/member/login";
+		}
+	}
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logoutPost(HttpSession session) {
+		session.removeAttribute("aaaa");
+		
+		return "redirect:/";
+	}
+	
+	
+	// 회원 가입 페이지
+	@PostMapping("/write")
+	public void getWrite() {
+	}
+	// 회원 가입
+	@PostMapping("/writePost")
+	public String postWrite(MemberDTO mdto) {
+		mservice.member(mdto);
+		return "redirect:/";
+	}
+	
+	// 회원 리스트
+	@GetMapping("/mList")
+	public void getList(Model model) {
+		model.addAttribute("mlist", mservice.list());
+	}
+	// 회원 상세 정보
+	@GetMapping("/mDetail")
+	public void getDetail(MemberDTO mdto, Model model) {
+		model.addAttribute("mdetail", mservice.detail(mdto));
+	}
+	// 회원 정보 수정 페이지
+	@PostMapping("/mModify")
+	public void postModify(MemberDTO mdto, Model model) {
+		System.out.println("modify = " + mdto);
+		model.addAttribute("modify", mservice.detail(mdto));
+	}
+	// 회원 정보 수정
+	@PostMapping("/mModifyPost")
+	public String postModifyPost(MemberDTO mdto) {
+		mservice.modify(mdto);
+		return "redirect:/member/mDetail?id=" + mdto.getId();
+	}
+	// 회원 삭제
+	@PostMapping("/mRemove")
+	public String postRemove(MemberDTO mdto, HttpSession session) {
+		mservice.remove(mdto);
+		session.removeAttribute("aaaa");
+		return "redirect:/";
 	}
 }
 ```
